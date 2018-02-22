@@ -1,10 +1,10 @@
-/* CoreAnimation - CAView.h
+/* CoreAnimation - CABackdropLayer.h
  
  Copyright (c) 2006-2007 Apple Inc.
  All rights reserved. */
 
-#ifndef CAVIEW_H
-#define CAVIEW_H
+#ifndef CABACKDROPLAYER_H
+#define CABACKDROPLAYER_H
 
 #include <QuartzCore/CABase.h>
 
@@ -52,4 +52,4 @@ CA_EXTERN NSString * const kCABackdropStatisticsLuminanceStandardDeviation;
 
 CA_EXTERN_C_END
 
-#endif // CAVIEW_H
+#endif // CABACKDROPLAYER_H
