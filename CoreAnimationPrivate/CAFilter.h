@@ -19,10 +19,15 @@ CA_EXTERN_C_BEGIN
 @property (copy) NSString *name;
 @property (readonly, assign) NSString *type;
 
+@property (readonly, strong) NSArray<NSString *> *inputKeys;
+@property (readonly, strong) NSArray<NSString *> *outputKeys;
+
 + (nullable CAFilter *)filterWithType:(nonnull NSString *)type NS_SWIFT_UNAVAILABLE("Use init(type:) instead.");
-+ (nullable CAFilter *)filterWithName:(nonnull NSString *)name NS_SWIFT_UNAVAILABLE("Use init(name:) instead.");
++ (nullable CAFilter *)filterWithName:(nonnull NSString *)name NS_SWIFT_UNAVAILABLE("Use init(type:) instead.");
 - (nullable instancetype)initWithType:(nonnull NSString *)type;
-- (nullable instancetype)initWithName:(nonnull NSString *)name;
+- (nullable instancetype)initWithName:(nonnull NSString *)name NS_SWIFT_UNAVAILABLE("Use init(type:) instead.");
+
+- (void)setDefaults;
 
 @end
 
