@@ -52,7 +52,7 @@ CA_EXTERN_C_BEGIN
 
 @interface CAStateElement : NSObject <NSCopying, NSSecureCoding>
 
-@property (retain, nonatomic) CAStateElement *source;
+@property (strong, nonatomic) CAStateElement *source;
 @property (nonatomic, weak) CALayer *target;
 @property (readonly, copy, nonatomic) NSString *keyPath;
 
@@ -67,15 +67,15 @@ CA_EXTERN_C_BEGIN
 
 @interface CAStateAddAnimation: CAStateElement
 
-@property (retain, nonatomic) CAAnimation *animation;
+@property (strong, nonatomic) CAAnimation *animation;
 @property (copy, nonatomic) NSString *key;
 
 @end
 
 @interface CAStateAddElement : CAStateElement
 
-@property (retain, nonatomic) id beforeObject;
-@property (retain, nonatomic) id object;
+@property (strong, nonatomic) id beforeObject;
+@property (strong, nonatomic) id object;
 @property (copy, nonatomic) NSString *keyPath;
 
 @end
@@ -115,7 +115,7 @@ CA_EXTERN_C_BEGIN
 @interface CAStateControllerLayer : NSObject
 
 @property (readonly) CAStateControllerUndo *undoStack;
-@property (retain, nonatomic) CAState *currentState;
+@property (strong, nonatomic) CAState *currentState;
 @property (readonly) CALayer *layer;
 
 - (instancetype)initWithLayer:(CALayer *)layer;
@@ -142,9 +142,9 @@ CA_EXTERN_C_BEGIN
 
 @interface CAStateControllerUndo : NSObject <CAStateRecorder>
 
-@property (retain, nonatomic) NSMutableArray *transitions;
-@property (retain, nonatomic) NSMutableArray *elements;
-@property (retain, nonatomic) CAState *state;
+@property (strong, nonatomic) NSMutableArray *transitions;
+@property (strong, nonatomic) NSMutableArray *elements;
+@property (strong, nonatomic) CAState *state;
 @property (readonly) CAStateControllerUndo *next;
 
 - (void)addElement:(CAStateElement *)element;
@@ -159,14 +159,14 @@ CA_EXTERN_C_BEGIN
 
 @interface CAStateRemoveElement : CAStateElement
 
-@property (retain, nonatomic) id object;
+@property (strong, nonatomic) id object;
 @property (copy, nonatomic) NSString *keyPath;
 
 @end
 
 @interface CAStateSetValue : CAStateElement
 
-@property (retain, nonatomic) id value;
+@property (strong, nonatomic) id value;
 @property (copy, nonatomic) NSString *keyPath;
 
 @end
@@ -185,7 +185,7 @@ CA_EXTERN_C_BEGIN
 
 @property (getter=isEnabled) BOOL enabled;
 @property (copy, nonatomic) NSString *key;
-@property (retain, nonatomic) CAAnimation *animation;
+@property (strong, nonatomic) CAAnimation *animation;
 @property (nonatomic, weak) CALayer *target;
 @property (nonatomic) double duration;
 @property (nonatomic) double beginTime;
@@ -198,7 +198,7 @@ CA_EXTERN_C_BEGIN
 @property (copy) NSArray *states;
 
 - (CAStateTransition *)stateTransitionFrom:(CAState *)fromState to:(CAState *)toState;
-- (NSArray<CAState *> *)dependentStatesOfState:(CAState *)state;
+- (NSArray<__kindof CAState *> *)dependentStatesOfState:(CAState *)state;
 - (CAState *)stateWithName:(NSString *)name;
 - (void)removeState:(CAState *)state;
 - (void)insertState:(CAState *)state atIndex:(uint32_t)idx;

@@ -16,7 +16,7 @@ CA_EXTERN_C_BEGIN
 @interface CARenderer ()
 
 @property (weak) id <CARendererDelegate> delegate;
-@property (retain) CAContext *context;
+@property (strong) CAContext *context;
 
 - (instancetype)_initWithOptions:(NSDictionary *)options;
 

@@ -35,7 +35,7 @@ typedef void *CALinearMaskContextRef;
 
 @interface CAGradientLayer ()
 
-@property (retain) id colorMap;
+@property (strong) id colorMap;
 
 @end
 

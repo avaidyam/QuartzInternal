@@ -22,12 +22,11 @@
 
 /* Renderer features. */
 
-enum CARenderFeatureFlags
-{
-  kCARenderFlippedGeometry		= 1U << 0,
-  kCARenderFlippedImages		= 1U << 1,
+typedef NS_OPTIONS(NSUInteger, CARenderFeatureFlags) {
+  kCARenderFlippedGeometry		    = 1U << 0,
+  kCARenderFlippedImages		    = 1U << 1,
   kCARenderDisableGroupOpacity		= 1U << 2,
-  kCARenderDisableEdgeAA		= 1U << 3,
+  kCARenderDisableEdgeAA		    = 1U << 3,
   kCARenderMinimizeScissorChanges	= 1U << 4,
   kCARenderDeviceDependentCoreImage	= 1U << 5,
   kCARenderDisableImageProviderFade	= 1U << 6,

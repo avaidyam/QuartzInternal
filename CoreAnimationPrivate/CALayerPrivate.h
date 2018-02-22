@@ -18,7 +18,7 @@ CA_EXTERN_C_BEGIN
 @property BOOL cornerContentsMasksEdges;
 @property BOOL continuousCorners;
 @property CGRect cornerContentsCenter;
-@property (retain) id cornerContents;
+@property (strong) id cornerContents;
 @property uint32_t disableUpdateMask;
 @property BOOL acceleratesDrawing;
 @property CGSize backgroundColorPhase;

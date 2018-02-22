@@ -77,7 +77,7 @@ CA_EXTERN_C_BEGIN
 + (instancetype)writerWithData:(id)arg1;
 
 @property (weak) id <CAMLWriterDelegate> delegate;
-@property (retain) NSURL *baseURL;
+@property (strong) NSURL *baseURL;
 
 - (instancetype)initWithData:(id)arg1;
 
@@ -95,7 +95,7 @@ CA_EXTERN_C_BEGIN
 @property (readonly) id result;
 @property (readonly) NSError *error;
 @property (weak) id <CAMLParserDelegate> delegate;
-@property (retain) NSURL *baseURL;
+@property (strong) NSURL *baseURL;
 
 - (BOOL)parseContentsOfURL:(NSURL *)url;
 - (BOOL)parseData:(NSData *)data;

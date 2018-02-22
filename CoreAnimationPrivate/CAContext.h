@@ -21,7 +21,7 @@ CA_EXTERN_C_BEGIN
 + (instancetype)localContext;
 + (instancetype)currentContext;
 
-+ (NSArray<CAContext *> *)allContexts;
++ (NSArray<__kindof CAContext *> *)allContexts;
 + (id)objectForSlot:(uint32_t)slot;
 + (void)setClientPort:(mach_port_t)port;
 
@@ -33,7 +33,7 @@ CA_EXTERN_C_BEGIN
 @property uint32_t displayMask;
 @property uint32_t displayNumber;
 @property uint32_t eventMask;
-@property (retain) CALayer *layer;
+@property (strong) CALayer *layer;
 @property (readonly) NSDictionary *options;
 @property int restrictedHostProcessId;
 @property (readonly) BOOL valid;

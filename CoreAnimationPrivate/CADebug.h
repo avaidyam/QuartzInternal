@@ -12,8 +12,7 @@
  * environment variables that can be used to enable the options via the
  * command line. */
 
-enum CADebugFlags
-{
+typedef NS_OPTIONS(uint32_t, CADebugFlags) {
   /* Flash updated screen regions yellow. CA_COLOR_FLUSH=1 */
 
   kCADebugColorFlush			= 1U << 0,
@@ -116,13 +115,13 @@ CA_EXTERN_C_BEGIN
 
 /* Returns the bitmask defining the currently enabled debug options. */
 
-CA_EXTERN uint32_t CAGetDebugFlags (void)
+CA_EXTERN CADebugFlags CAGetDebugFlags (void)
     __OSX_AVAILABLE_STARTING (__MAC_10_5, __IPHONE_2_0);
 
 /* Change the currently enabled debug options; all bits in 'mask' are
  * set to the corresponding values in 'value'. */
 
-CA_EXTERN void CASetDebugFlags (uint32_t mask, uint32_t value)
+CA_EXTERN void CASetDebugFlags (CADebugFlags mask, uint32_t value)
     __OSX_AVAILABLE_STARTING (__MAC_10_5, __IPHONE_2_0);
 
 /* These two functions are for debugging CoreAnimation memory usage - they

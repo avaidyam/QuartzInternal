@@ -18,14 +18,14 @@ CA_EXTERN_C_BEGIN
 + (instancetype)spring;
 
 @property (weak) id <CASpringDelegate> delegate;
-@property (retain) CAValueFunction *function;
+@property (strong) CAValueFunction *function;
 @property double restLength;
 @property double damping;
 @property double stiffness;
 @property CGPoint attachmentPointB;
 @property CGPoint attachmentPointA;
-@property (retain) CALayer *layerB;
-@property (retain) CALayer *layerA;
+@property (strong) CALayer *layerB;
+@property (strong) CALayer *layerA;
 @property (getter=isEnabled) BOOL enabled;
 @property (copy) NSString *name;
 

@@ -13,7 +13,7 @@ CA_EXTERN_C_BEGIN
 @interface CAPresentationModifier : NSObject
 
 @property (getter=isEnabled) BOOL enabled;
-@property (retain) id value;
+@property (strong) id value;
 @property (readonly) CAPresentationModifierGroup *group;
 @property (readonly, copy) NSString *keyPath;
 @property (readonly) BOOL additive;

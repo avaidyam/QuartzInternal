@@ -16,8 +16,8 @@ CA_EXTERN_C_BEGIN
 
 + (instancetype)forceField;
 
-@property (retain) CAValueFunction *function;
-@property (retain) CALayer *layer;
+@property (strong) CAValueFunction *function;
+@property (strong) CALayer *layer;
 @property (getter=isEnabled) BOOL enabled;
 @property (copy) NSString *name;
 

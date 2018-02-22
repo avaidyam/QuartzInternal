@@ -14,8 +14,7 @@ CA_EXTERN_C_END
 
 typedef struct _CABackingStore *CABackingStoreRef;
 
-enum CABackingStoreFlags
-{
+typedef NS_OPTIONS(uint32_t, CABackingStoreFlags) {
   kCABackingStoreOpaque     = 1U << 0,
   kCABackingStoreCleared    = 1U << 1,
   kCABackingStoreMipmap     = 1U << 2,
@@ -54,7 +53,7 @@ CA_EXTERN void CABackingStoreCollectBlocking (void);
  * then swaps back and front buffers. */
 
 CA_EXTERN void CABackingStoreUpdate (CABackingStoreRef b, size_t width,
-    size_t height, uint32_t flags, void (*callback) (CGContextRef ctx,
+    size_t height, CABackingStoreFlags flags, void (*callback) (CGContextRef ctx,
     void *info), void *callback_info);
 
 /* Returns the dirty region for the backing store from the last time

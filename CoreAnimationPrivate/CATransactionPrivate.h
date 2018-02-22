@@ -10,12 +10,12 @@
 
 CA_EXTERN_C_BEGIN
 
-typedef enum {
+typedef NS_ENUM(uint32_t, CATransactionPhase) {
     kCATransactionPhasePreLayout,
     kCATransactionPhasePreCommit,
     kCATransactionPhasePostCommit,
     kCATransactionPhaseNull = ~0u
-} CATransactionPhase;
+};
 
 @interface CATransaction ()
 
