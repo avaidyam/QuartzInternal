@@ -1,0 +1,3 @@
+[submodule "SkyLight"]
+	path = SkyLight
+	url = git@github.com:NUIKit/CGSInternal.git
