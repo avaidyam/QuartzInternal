@@ -32,6 +32,11 @@ parameterFunction:(void */*function*/)function context:(void *)context;
 
 @end
 
+/** Atoms. **/
+
+CA_EXTERN NSString *CAAtomGetString(uint32_t atomId);
+CA_EXTERN uint32_t CAInternAtom(NSString *key);
+
 /** Attributes and keys. **/
 
 CA_EXTERN NSString * const kCAAttributeType;
