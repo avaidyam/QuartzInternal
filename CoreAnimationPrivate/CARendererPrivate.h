@@ -44,7 +44,6 @@ CA_EXTERN NSString * const kCARenderMetalServerCallbacks;
 
 /** Renderer properties. **/
 
-CA_EXTERN NSString * const kCARendererColorSpace;
 CA_EXTERN NSString * const kCARendererDeepBuffers;
 
 CA_EXTERN_C_END

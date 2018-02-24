@@ -16,12 +16,6 @@ CA_EXTERN_C_BEGIN
 
 @end
 
-@interface CALayer (Remote)
-
-+ (instancetype)layerWithRemoteClientId:(uint32_t)clientId;
-
-@end
-
 CA_EXTERN_C_END
 
 #endif // CALAYERHOST_H

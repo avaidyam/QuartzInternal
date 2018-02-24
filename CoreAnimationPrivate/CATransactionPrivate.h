@@ -54,12 +54,8 @@ typedef NS_ENUM(uint32_t, CATransactionPhase) {
 
 /** Transaction properties. **/
 
-CA_EXTERN NSString * const kCATransactionDisableActions;
-CA_EXTERN NSString * const kCATransactionAnimationDuration;
-CA_EXTERN NSString * const kCATransactionAnimationTimingFunction;
 CA_EXTERN NSString * const kCATransactionAnimationDelegate;
 CA_EXTERN NSString * const kCATransactionCommitTime;
-CA_EXTERN NSString * const kCATransactionCompletionBlock;
 CA_EXTERN NSString * const kCATransactionAnimatesFromModelValues;
 CA_EXTERN NSString * const kCATransactionInputTime;
 

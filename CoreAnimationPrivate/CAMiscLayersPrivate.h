@@ -42,8 +42,6 @@ typedef void *CALinearMaskContextRef;
 @interface CAMetalDrawable: NSObject <CAMetalDrawable>
 
 @property (nonatomic) uint32_t presentScheduledInsertSeed;
-@property (readonly) CAMetalLayer *layer;
-@property (readonly) id <MTLTexture> texture;
 
 - (void)presentAtTime:(CFTimeInterval)time;
 - (void)present;
