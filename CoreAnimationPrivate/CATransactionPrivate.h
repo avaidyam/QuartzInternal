@@ -17,6 +17,12 @@ typedef NS_ENUM(uint32_t, CATransactionPhase) {
     kCATransactionPhaseNull = ~0u
 };
 
+typedef NS_OPTIONS(uint32_t, CATransactionState) {
+    kCATransactionImplicit          = 1U << 0,
+    kCATransactionExplicit          = 1U << 1,
+    kCATransactionIsActive          = (kCATransactionImplicit | kCATransactionExplicit),
+};
+
 @interface CATransaction ()
 
 @property (class) BOOL lowLatency;
@@ -27,7 +33,7 @@ typedef NS_ENUM(uint32_t, CATransactionPhase) {
 @property (class) BOOL animatesFromModelValues;
 
 + (uint32_t)generateSeed;
-+ (uint32_t)currentState;
++ (CATransactionState)currentState;
 
 + (void)synchronize;
 + (void)activateBackground:(BOOL)background;

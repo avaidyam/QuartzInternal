@@ -56,31 +56,16 @@ enum {
 };
 typedef uint32_t CGFontAntialiasingStyle;
 
-enum {
-    kCGImageCachingTransient = 1,
-    kCGImageCachingTemporary = 3,
-};
-typedef uint32_t CGImageCachingFlags;
-
-#ifdef CGFLOAT_IS_DOUBLE
-#define CGRound(value) round((value))
-#define CGFloor(value) floor((value))
-#define CGCeiling(value) ceil((value))
-#define CGFAbs(value) fabs((value))
-#else
-#define CGRound(value) roundf((value))
-#define CGFloor(value) floorf((value))
-#define CGCeiling(value) ceilf((value))
-#define CGFAbs(value) fabsf((value))
-#endif
-
-static inline CGFloat CGFloatMin(CGFloat a, CGFloat b) { return isnan(a) ? b : ((isnan(b) || a < b) ? a : b); }
-
+/* Windows:
+typedef struct CGFontCache CGFontCache;
+typedef CGFontCache *CGFontCacheRef;
+ 
 CG_EXTERN CGFontCacheRef CGFontCacheGetLocalCache();
 
 CG_EXTERN void CGFontCacheSetShouldAutoExpire(CGFontCacheRef cache, bool shouldAutoExpire);
 
 CG_EXTERN void CGFontCacheSetMaxSize(CGFontCacheRef cache, size_t size);
+*/
 
 CG_EXTERN CFStringRef CGFontCopyFamilyName(CGFontRef font);
 

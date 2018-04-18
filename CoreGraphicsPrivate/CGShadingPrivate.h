@@ -160,4 +160,6 @@ CG_EXTERN const CGShadingDescriptor *CGShadingGetDescriptor(CGShadingRef
 
 CG_EXTERN CFDictionaryRef CGShadingGetAuxiliaryInfo(CGShadingRef shading);
 
+CG_EXTERN CGPatternRef CGPatternCreateWithImage2(CGImageRef, CGAffineTransform, CGPatternTiling);
+
 #endif /* CGSHADINGPRIVATE_H_ */

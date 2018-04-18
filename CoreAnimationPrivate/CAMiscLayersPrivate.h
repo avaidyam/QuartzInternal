@@ -52,7 +52,6 @@ typedef void *CALinearMaskContextRef;
 
 @interface CAMetalLayer ()
 
-@property uint64_t maximumDrawableCount;
 @property BOOL serverSyncEnabled;
 @property BOOL fenceEnabled;
 @property BOOL nonDefaultColorspace;

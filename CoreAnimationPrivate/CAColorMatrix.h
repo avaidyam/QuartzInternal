@@ -10,6 +10,7 @@
 
 CA_EXTERN_C_BEGIN
 
+/* Describes a color matrix used for blending transformations. */
 typedef struct CAColorMatrix {
     float m11, m12, m13, m14, m15;
     float m21, m22, m23, m24, m25;
@@ -19,7 +20,11 @@ typedef struct CAColorMatrix {
 
 @interface NSValue (ColorMatrix)
 
+/* Construct an NSValue containing a `CAColorMatrix`. */
 + (NSValue *)valueWithCAColorMatrix:(CAColorMatrix)matrix;
+
+/* Retrieves the contained `CAColorMatrix`, if any. */
+- (CAColorMatrix)CAColorMatrixValue;
 
 @end
 

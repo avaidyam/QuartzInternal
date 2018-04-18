@@ -8,7 +8,7 @@
 
 #include <QuartzCore/CABase.h>
 
-CA_EXTERN_C_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol CASpringDelegate <NSObject>
 @end
@@ -17,8 +17,8 @@ CA_EXTERN_C_BEGIN
 
 + (instancetype)spring;
 
-@property (weak) id <CASpringDelegate> delegate;
-@property (strong) CAValueFunction *function;
+@property (weak, nullable) id <CASpringDelegate> delegate;
+@property (strong, nullable) CAValueFunction *function;
 @property double restLength;
 @property double damping;
 @property double stiffness;
@@ -39,6 +39,6 @@ CA_EXTERN_C_BEGIN
 
 @end
 
-CA_EXTERN_C_END
+NS_ASSUME_NONNULL_END
 
 #endif // CASPRING_H

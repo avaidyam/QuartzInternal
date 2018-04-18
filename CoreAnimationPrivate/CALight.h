@@ -7,24 +7,27 @@
 #define CALIGHT_H
 
 #include <QuartzCore/CABase.h>
+#include "CAPoint.h"
+
+#define CA_LIGHT_UNAVAILABLE __attribute__((unavailable("CALight has been removed from CoreAnimation.")))
 
 CA_EXTERN_C_BEGIN
 
 @interface CALight: NSObject
 
-+ (instancetype)lightWithType:(NSString *)type;
++ (instancetype)lightWithType:(NSString *)type CA_LIGHT_UNAVAILABLE;
 
-@property CAPoint3D position;
-@property double specularIntensity;
-@property (copy) NSString *name;
+@property CAPoint3D position CA_LIGHT_UNAVAILABLE;
+@property double specularIntensity CA_LIGHT_UNAVAILABLE;
+@property (copy) NSString *name CA_LIGHT_UNAVAILABLE;
 
-- (instancetype)initWithType:(NSString *)type;
+- (instancetype)initWithType:(NSString *)type CA_LIGHT_UNAVAILABLE;
 
 @end
 
 @interface CALayer (Lights)
 
-@property (copy) NSArray *lights;
+@property (copy) NSArray<CALight *> *lights CA_LIGHT_UNAVAILABLE;
 
 @end
 

@@ -10,6 +10,8 @@
 
 CA_EXTERN_C_BEGIN
 
+@class CAPresentationModifierGroup;
+
 @interface CAPresentationModifier : NSObject
 
 @property (getter=isEnabled) BOOL enabled;

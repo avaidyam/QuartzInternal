@@ -36,9 +36,6 @@ CA_EXTERN_C_BEGIN
 
 /** Render callbacks. **/
 
-CA_EXTERN NSString * const kCARenderCGLCallbacks;
-CA_EXTERN NSString * const kCARenderCGLSCallbacks;
-CA_EXTERN NSString * const kCARenderSoftwareCallbacks;
 CA_EXTERN NSString * const kCARenderMetalCallbacks;
 CA_EXTERN NSString * const kCARenderMetalServerCallbacks;
 

@@ -6,8 +6,7 @@
 #ifndef CARENDERCG_H
 #define CARENDERCG_H
 
-#include <QuartzCore/CARender.h>
-#include <CoreGraphics/CGSBounds.h>
+#include "CARender.h"
 
 typedef struct _CARenderCGContext CARenderCGContext;
 typedef struct _CARenderCGCallbacks CARenderCGCallbacks;

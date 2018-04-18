@@ -22,7 +22,7 @@ CA_EXTERN_C_BEGIN
 + (instancetype)currentContext;
 
 + (NSArray<__kindof CAContext *> *)allContexts;
-+ (id)objectForSlot:(uint32_t)slot;
++ (CASlotProxy *)objectForSlot:(uint32_t)slot;
 + (void)setClientPort:(mach_port_t)port;
 
 @property BOOL colorMatchUntaggedContent;
@@ -38,10 +38,11 @@ CA_EXTERN_C_BEGIN
 @property int restrictedHostProcessId;
 @property (readonly) BOOL valid;
 
+- (void)invalidate;
+
 - (uint32_t)createSlot;
 - (void)setObject:(id)object forSlot:(uint32_t)slot;
 - (void)deleteSlot:(uint32_t)slot;
-- (void)invalidate;
 
 - (mach_port_t)createFencePort;
 - (void)setFence:(uint32_t)fence count:(uint32_t)count;
@@ -51,6 +52,7 @@ CA_EXTERN_C_BEGIN
 
 @end
 
+/* Can be used as the value of `CALayer.contents`. */
 @interface CASlotProxy: NSObject
 
 - (instancetype)initWithName:(uint32_t)slotName;
@@ -78,7 +80,12 @@ CA_EXTERN NSString * const kCAContextEnablePixelDoubling;
 CA_EXTERN NSString * const kCAContextEnablePixelQuadrupling;
 CA_EXTERN NSString * const kCAContextDisableGroupOpacity;
 CA_EXTERN NSString * const kCAContextDisableEdgeAntialiasing;
+
+/**
+ Can be @"ignore", @"encode", or @"throw". Remaining options are unknown.
+ **/
 CA_EXTERN NSString * const kCAContextCIFilterBehavior;
+
 CA_EXTERN NSString * const kCAContextCanBeObscured;
 CA_EXTERN NSString * const kCAContextCanZombify;
 

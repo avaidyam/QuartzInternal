@@ -10,6 +10,8 @@
 
 CA_EXTERN_C_BEGIN
 
+/* TODO: CACFViewRef might just be a CAViewRef... */
+
 /* Creates a new view object. */
 CA_EXTERN CACFViewRef CACFViewCreate();
 

@@ -7,6 +7,7 @@
 #define CABEHAVIOR_H
 
 #include <QuartzCore/CABase.h>
+#include "CAPropertyInfo.h"
 
 CA_EXTERN_C_BEGIN
 
@@ -23,8 +24,6 @@ CA_EXTERN_C_BEGIN
 @interface CABehavior: NSObject <NSSecureCoding, NSCopying, CAPropertyInfo>
 
 + (instancetype)behavior;
-
-+ (id)properties;
 
 @property (copy) NSDictionary *style;
 @property (weak) id <CABehaviorDelegate> delegate;

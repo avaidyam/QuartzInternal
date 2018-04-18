@@ -10,6 +10,8 @@
 
 CA_EXTERN_C_BEGIN
 
+@class CAStateControllerTransition, CAStateControllerUndo;
+
 @class CAStateElement, CALayer, CAStateController, CAStateTransition;
 
 @protocol CAStateRecorder <NSObject>

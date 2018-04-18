@@ -7,7 +7,7 @@
 #define CALAYOUTMANAGERPRIVATE_H
 
 #include <QuartzCore/CABase.h>
-#include <QuartzCore/CALayoutManager.h>
+#include <QuartzCore/CAConstraintLayoutManager.h>
 
 CA_EXTERN_C_BEGIN
 

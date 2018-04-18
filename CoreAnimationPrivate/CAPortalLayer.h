@@ -10,15 +10,33 @@
 
 CA_EXTERN_C_BEGIN
 
+/* The `CAPortalLayer` mirrors a layer within the same, or different, layer tree,
+ * optionally matching its transform, position, and opacity. */
 @interface CAPortalLayer : CALayer
 
-@property BOOL matchesTransform;
-@property BOOL matchesPosition;
-@property BOOL matchesOpacity;
-@property BOOL hidesSourceLayer;
-@property uint32_t sourceContextId;
-@property uint64_t sourceLayerRenderId;
+/* The layer to mirror, if within the same layer tree (same `CAContext`).
+ * If not set, `sourceContextId` and `sourceLayerRenderId` must be set. */
 @property (weak) CALayer *sourceLayer;
+
+/* The context (layer tree) of the source layer to mirror from.
+ * Requires `sourceLayerRenderId`. If not set, `sourceLayer` must be set. */
+@property uint32_t sourceContextId;
+
+/* The layer render id of the source layer within the `sourceContextId` to mirror.
+ * Requires `sourceContextId`. If not set, `sourceLayer` must be set. */
+@property uint64_t sourceLayerRenderId;
+
+/* The portal layer's transform is set to the source layer's transform. */
+@property BOOL matchesTransform;
+
+/* The portal layer's position is set to the source layer's position. */
+@property BOOL matchesPosition;
+
+/* The portal layer's opacity is set to the source layer's opacity. */
+@property BOOL matchesOpacity;
+
+/* The source layer is hidden; only the portal layer is visible, mirroring it. */
+@property BOOL hidesSourceLayer;
 
 @end
 

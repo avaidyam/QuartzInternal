@@ -16,7 +16,7 @@
 
 #include <QuartzCore/CATransform3D.h>
 #ifdef __OBJC__
-#import <QuartzCore/CAContext.h>
+#import "CAContext.h"
 #endif
 #include <CoreVideo/CVBase.h>
 
@@ -297,6 +297,14 @@ enum CARenderNotificationName
   /* Posted when an "image-like" object is about to be deallocated. */
 
   kCARenderWillDeallocateImage,
+    
+  /* Posted before the render context is committed. */
+    
+  kCARenderWillCommitContext,
+    
+  /* Posted after the render context is committed. */
+    
+  kCARenderDidCommitContext,
 };
 
 typedef void (*CARenderNotificationCallback) (CARenderRef object, void *info,

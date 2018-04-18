@@ -24,7 +24,13 @@ CA_EXTERN_C_BEGIN
 @property CGSize backgroundColorPhase;
 @property CGSize sizeRequisition;
 @property (getter=isFloating) BOOL floating;
+
+/* When true, and the layer's filters property is populated, the
+ * layer is allowed to blend itself as a group separate from its
+ * parent. This gives the correct results when the layer contains
+ * multiple blended components, but may reduce performance. */
 @property BOOL allowsGroupBlending;
+
 @property BOOL allowsDisplayCompositing;
 @property BOOL preloadsCache;
 @property double motionBlurAmount;
@@ -44,8 +50,17 @@ CA_EXTERN_C_BEGIN
 @property BOOL literalContentsCenter;
 @property BOOL hitTestsAsOpaque;
 @property BOOL allowsHitTesting;
+
+/* When true, and the layer's opacity property is less than one, the
+ * layer is allowed to composite itself as a group separate from its
+ * parent. This gives the correct results when the layer contains
+ * multiple opaque components, but may reduce performance. */
 @property BOOL allowsGroupOpacity;
+
+/* When true this layer is allowed to antialias its edges, as requested
+ * by the value of the edgeAntialiasingMask property. */
 @property BOOL allowsEdgeAntialiasing;
+
 @property BOOL allowsContentsRectCornerMasking;
 @property double velocityStretch;
 @property double coefficientOfRestitution;

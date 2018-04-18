@@ -6,10 +6,10 @@
 #ifndef CABACKINGSTORE_H
 #define CABACKINGSTORE_H
 
-#include <QuartzCore/CARender.h>
+#include "CARender.h"
 
 CA_EXTERN_C_BEGIN
-#include <CoreGraphics/CGSRegion.h>
+#include "CGSRegion.h"
 CA_EXTERN_C_END
 
 typedef struct _CABackingStore *CABackingStoreRef;

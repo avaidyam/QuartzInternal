@@ -20,11 +20,28 @@ typedef enum {
 } CGBrushStyle;
 
 typedef enum {
-	kCGContextTypeGeneric		= 0,
-	kCGContextTypePDF			= 1,
-	kCGContextTypeBitmap		= 4,
-	kCGContextTypeDisplayList	= 6
+    kCGContextTypeUnknown,
+    kCGContextTypePDF,
+    kCGContextTypePostScript,
+    kCGContextTypeWindow,
+    kCGContextTypeBitmap,
+    kCGContextTypeGL,
+    kCGContextTypeDisplayList,
+    kCGContextTypeKSeparation,
+    kCGContextTypeIOSurface,
+    kCGContextTypeCount
 } CGContextType;
+
+typedef enum {
+    kCGCompositeCopy = 1,
+    kCGCompositeSover = 2,
+} CGCompositeOperation;
+
+enum {
+    kCGImageCachingTransient = 1,
+    kCGImageCachingTemporary = 3,
+};
+typedef uint32_t CGImageCachingFlags;
 
 typedef struct CGBitmapContextInfo *CGBitmapContextInfoRef;
 
@@ -65,6 +82,8 @@ CG_EXTERN CGFloat CGContextGetLineWidth(CGContextRef c);
 
 CG_EXTERN bool CGContextGetShouldSmoothFonts(CGContextRef c);
 
+CG_EXTERN bool CGContextGetShouldAntialias(CGContextRef c);
+
 CG_EXTERN void CGContextSetBaseCTM(CGContextRef c, CGAffineTransform baseCTM);
 
 CG_EXTERN void CGContextSetCTM(CGContextRef c, CGAffineTransform ctm);
@@ -74,6 +93,8 @@ CG_EXTERN void CGContextSetCompositeOperation(CGContextRef c, CGCompositeOperati
 CG_EXTERN void CGContextSetShouldAntialiasFonts(CGContextRef c, bool shouldAntialiasFonts);
 
 CG_EXTERN void CGContextResetClip(CGContextRef c);
+
+CG_EXTERN CGContextType CGContextGetType(CGContextRef);
 
 #if PLATFORM(MAC) && __MAC_OS_X_VERSION_MIN_REQUIRED >= 101100
 
@@ -85,6 +106,20 @@ CG_EXTERN void CGContextSetFontRenderingStyle(CGContextRef c, CGFontRenderingSty
 CG_EXTERN CGFontAntialiasingStyle CGContextGetFontAntialiasingStyle(CGContextRef c);
 
 CG_EXTERN void CGContextSetFontAntialiasingStyle(CGContextRef c, CGFontAntialiasingStyle style);
+
+CG_EXTERN bool CGContextGetAllowsFontSubpixelPositioning(CGContextRef c);
+
+CG_EXTERN bool CGContextDrawsWithCorrectShadowOffsets(CGContextRef c);
+
+CG_EXTERN bool CGColorSpaceUsesExtendedRange(CGColorSpaceRef c);
+
+CG_EXTERN CGColorSpaceRef CGContextCopyDeviceColorSpace(CGContextRef c);
+
+CG_EXTERN CFPropertyListRef CGColorSpaceCopyPropertyList(CGColorSpaceRef c);
+
+CG_EXTERN void CGImageSetCachingFlags(CGImageRef, CGImageCachingFlags);
+
+CG_EXTERN CGImageCachingFlags CGImageGetCachingFlags(CGImageRef);
 
 CG_EXTERN const CFStringRef kCGContextDisplayList;
 CG_EXTERN const CFStringRef kCGContextLog;
@@ -105,6 +140,13 @@ CG_EXTERN const CFStringRef kCGContextClear;
 CG_EXTERN const CFStringRef kCGContextWait;
 CG_EXTERN const CFStringRef kCGContextSynchronize;
 CG_EXTERN const CFStringRef kCGContextFlush;
+
+CGDataProviderRef CGPDFDocumentGetDataProvider(CGPDFDocumentRef);
+
+typedef struct CGPDFAnnotation *CGPDFAnnotationRef;
+typedef bool (^CGPDFAnnotationDrawCallbackType)(CGContextRef context, CGPDFPageRef page, CGPDFAnnotationRef annotation);
+void CGContextDrawPDFPageWithAnnotations(CGContextRef, CGPDFPageRef, CGPDFAnnotationDrawCallbackType);
+void CGContextDrawPathDirect(CGContextRef, CGPathDrawingMode, CGPathRef, const CGRect* boundingBox);
 
 CF_EXTERN_C_END
 
