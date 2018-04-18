@@ -40,6 +40,9 @@ CA_EXTERN_C_BEGIN
 
 @end
 
+/* Returns the layer's render ID (used by the render context). */
+CA_EXTERN uint64_t CALayerGetRenderId(CALayer *layer);
+
 CA_EXTERN_C_END
 
 #endif // CAPORTALLAYER_H
