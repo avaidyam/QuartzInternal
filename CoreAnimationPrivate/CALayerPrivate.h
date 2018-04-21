@@ -48,7 +48,9 @@ CA_EXTERN_C_BEGIN
 @property BOOL clearsContext;
 @property BOOL canDrawConcurrently;
 @property BOOL literalContentsCenter;
+
 @property BOOL hitTestsAsOpaque;
+
 @property BOOL allowsHitTesting;
 
 /* When true, and the layer's opacity property is less than one, the
@@ -62,16 +64,15 @@ CA_EXTERN_C_BEGIN
 @property BOOL allowsEdgeAntialiasing;
 
 @property BOOL allowsContentsRectCornerMasking;
-@property double velocityStretch;
-@property double coefficientOfRestitution;
-@property double momentOfInertia;
-@property double mass;
 @property uint32_t layoutFlags;
 @property BOOL wantsExtendedDynamicRangeContent;
 @property (readonly) CGSize size;
 @property (readonly) CGSize preferredFrameSize;
 
 - (instancetype)_initWithReference:(CALayer *)layer;
+
+/* Returns a copy of the parent layer but with the given reference time. */
+- (instancetype)layerAtTime:(CFTimeInterval)time;
 
 - (CGRect)_visibleRectOfLayer:(CALayer *)layer;
 - (void)scrollRectToVisible:(CGRect)rect;

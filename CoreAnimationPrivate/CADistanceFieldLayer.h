@@ -12,17 +12,6 @@ CA_EXTERN_C_BEGIN
 
 @class CALayer;
 
-@interface CAForceField: NSObject <NSCopying, NSMutableCopying, NSSecureCoding, CAPropertyInfo>
-
-+ (instancetype)forceField;
-
-@property (strong) CAValueFunction *function;
-@property (strong) CALayer *layer;
-@property (getter=isEnabled) BOOL enabled;
-@property (copy) NSString *name;
-
-@end
-
 @interface CADistanceFieldLayer : CALayer
 
 @property CGColorRef foregroundColor;

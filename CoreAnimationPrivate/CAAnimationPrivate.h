@@ -67,6 +67,10 @@ typedef NS_OPTIONS(uint32_t, CATransitionFlags) {
 
 @interface CASpringAnimation ()
 
+@property double velocity;
+
+- (double)durationForEpsilon:(double)epsilon;
+
 /* Calls -[CASpringAnimation _timeFunction:]. */
 - (float)_solveForInput:(float)value;
 

@@ -32,25 +32,10 @@ CA_EXTERN_C_BEGIN
 
 @end
 
-@interface CADynamicsBehavior: CABehavior
-
-@property BOOL reactsToCollisions;
-@property double angularDrag;
-@property double drag;
-@property double springScale;
-@property double collisionInterval;
-@property double stoppedAngularVelocity;
-@property double stoppedVelocity;
-@property double minimumTimeStep;
-@property double timeStep;
-@property (copy) NSArray *forceFields;
-@property (copy) NSArray *springs;
-
-@end
-
-@interface CALayer (Behaviors)
+@interface CALayer (CABehavior)
 
 @property (copy) NSArray *behaviors;
+@property double velocityStretch;
 
 @end
 

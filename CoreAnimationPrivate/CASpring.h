@@ -31,14 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CASpringAnimation ()
-
-@property double velocity;
-
-- (double)durationForEpsilon:(double)epsilon;
-
-@end
-
 NS_ASSUME_NONNULL_END
 
 #endif // CASPRING_H
